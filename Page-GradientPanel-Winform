@@ -1,0 +1,22 @@
+using System.Drawing;
+using System.Drawing.Drawing2D;
+using System.Windows.Forms;
+
+namespace WindowsFormsApp5
+{
+    public class GradientBrush:Panel
+    {
+        public Color TopColor { get; set; }
+
+        public Color BottomColor { get; set; }
+
+        protected override void OnPaint(PaintEventArgs e)
+        {
+            LinearGradientBrush linearGradientBrush = new LinearGradientBrush(this.ClientRectangle, this.TopColor, this.BottomColor, LinearGradientMode.BackwardDiagonal);
+            e.Graphics.FillRectangle(linearGradientBrush, this.ClientRectangle);
+            base.OnPaint(e);
+        }
+
+
+    }
+}
